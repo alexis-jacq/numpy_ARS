@@ -6,5 +6,5 @@ I did not parallelize computations, hence it could be quite less effective than 
 
 But my code should be easyer to handle. 
 
-First150 episodes with Hopper_V1:
+First 150 episodes with Hopper_V1:
 ![Hopper_V1](img/Hopper_V1.png)
