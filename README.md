@@ -10,6 +10,7 @@ Gif of HalfCheetah after 3min of training on my old i5 core:
 ![HalfCheetah_GIF](img/HalfCheetah.gif)
 
 Some quick results (1 episode contains 2*n_directions*horizon environment updates):
+
 First 150 episodes with Hopper_V1 [step_size=0.01, noise=0.03, n_directions=8, b=4, seed=1]:
 ![Hopper_V1](img/Hopper_V1.png)
 
