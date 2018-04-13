@@ -6,7 +6,9 @@ I did not parallelize computations, hence it could be quite less effective than 
 
 But my code should be easyer to handle. 
 
-## Quick results (1 episode contains 2*n_directions*horizon environment updates):
+## Quick results:
+
+(1 episode contains `2 * n_directions * horizon` environment updates)
 
 ### 100 episodes with **HalfCheetah_V1** [step_size=0.02, noise=0.03, n_directions=16, b=16, seed=1]:
 ![HalfCheetah_V1](img/HalfCheetah_V1.png)
