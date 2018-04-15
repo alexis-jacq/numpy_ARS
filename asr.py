@@ -9,22 +9,23 @@ import pybullet_envs
 # hyper parameters
 class Hp():
     def __init__(self):
-        self.main_loop_size = 1000
+        self.main_loop_size = 100
         self.horizon = 1000
-        self.step_size = 0.01
-        self.n_directions = 8
-        self.b = 4
+        self.step_size = 0.015
+        self.n_directions = 60
+        self.b = 20
         assert self.b<=self.n_directions, "b must be <= n_directions"
-        self.noise = 0.03
+        self.noise = 0.025
         self.seed = 1
         ''' chose your favourite '''
         #self.env_name = 'Reacher-v1'
         #self.env_name = 'Pendulum-v0'
         #self.env_name = 'HalfCheetahBulletEnv-v0'
-        self.env_name = 'Hopper-v1'#'HopperBulletEnv-v0'
-        #self.env_name = 'Ant-v1'#'AntBulletEnv-v0'#
+        #self.env_name = 'Hopper-v1'#'HopperBulletEnv-v0'
+        self.env_name = 'Ant-v1'#'AntBulletEnv-v0'#
         #self.env_name = 'HalfCheetah-v1'
         #self.env_name = 'Swimmer-v1'
+        #self.env_name = 'Humanoid-v1'
 
 # observation filter
 class Normalizer():
@@ -110,8 +111,8 @@ def train(env, policy, normalizer, hp):
 
         # sort rollouts wrt max(r_pos, r_neg) and take (hp.b) best
         scores = {k:max(r_pos, r_neg) for k,(r_pos,r_neg) in enumerate(zip(reward_positive,reward_negative))}
-        order = sorted(scores.keys(), key=lambda x:scores[x])[:hp.b]
-        rollouts = [(reward_positive[k], reward_negative[k], deltas[k]) for k in order]
+        order = sorted(scores.keys(), key=lambda x:scores[x])[-hp.b:]
+        rollouts = [(reward_positive[k], reward_negative[k], deltas[k]) for k in order[::-1]]
 
         # update policy:
         policy.update(rollouts, sigma_r)
