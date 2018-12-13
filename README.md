@@ -18,5 +18,5 @@ But my code should be easyer to handle.
 ![Ant_V1](img/Ant_V1.png)
 (took ~1 hour on Intel i5 core)
 
-## Running cheetah demo (after 100 episodes):
+## Running cheetah demo (after 100 updates):
 ![HalfCheetah_GIF](img/HalfCheetah.gif)
